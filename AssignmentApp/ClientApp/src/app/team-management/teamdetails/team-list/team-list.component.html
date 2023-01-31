@@ -1,1 +1,21 @@
-<h1>Team List WOrks</h1>
+<div class="container">
+  <table class="table">
+      <thead>
+        <tr>
+          <!-- <th scope="col">#</th> -->
+          <th scope="col">Team Name</th>
+          <th scope="col">Approved By Manager</th>
+          <th scope="col">Approved By Director</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let team of this.teamDetailsList">
+          <!-- <th scope="row">1</th> -->
+         <td>{{team.name}}</td>
+         <!-- <td>{{product.price}}</td>
+         <td>{{product.qty}}</td> -->
+        </tr>
+      </tbody>
+    </table>
+</div>

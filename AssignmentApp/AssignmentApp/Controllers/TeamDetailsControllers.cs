@@ -23,6 +23,7 @@ namespace AssignmentApp.Controllers
         [Route("save-Team")]
         public async Task<ActionResult> Post(TeamDetailsDto teamDto)
         {
+
            var team = teamDto.TeamMemberDtos.Select(x => new TeamDetail
             {
                  ContactNo = x.ContactNo,
@@ -48,15 +49,5 @@ namespace AssignmentApp.Controllers
 
             return Ok(teamDetailsDto);
         }
-
-
-        //[HttpGet]
-        //[Route("getall-Team")]
-        //public async Task<ActionResult> Get()
-        //{
-        //    var Teams = _context.Team.ToList();
-        //    var TeamDto = _mapper.Map<List<TeamDto>>(Teams);
-        //    return Ok(TeamDto);
-        //}
     }
 }
