@@ -7,7 +7,7 @@ import {TeamListComponent} from './teamdetails/team-list/team-list.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [
     NewTeamDetailsComponent,
@@ -17,6 +17,7 @@ import { MatInputModule } from '@angular/material/input';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    MatIconModule,
     TeamManagementRoutingModule
   ]
 })

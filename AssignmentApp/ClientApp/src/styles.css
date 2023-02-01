@@ -2,3 +2,63 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+button.edit-btn {
+    border: none;
+    color: blue;
+    text-decoration-line: underline;
+    font-size: 19px;
+}
+button.delete-btn {
+    border: none;
+    color: blue;
+    text-decoration-line: underline;
+    font-size: 19px;
+}
+
+.team {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 81%;
+    margin-left: 100px;
+  }
+  
+  .team td {
+    border: 1px solid rgb(85 100 175);
+    padding: 8px;
+  }
+  .team th {
+    border: 1px solid rgb(85 100 175);
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #0446aa;
+    color: white;
+  }
+  button.btn.btn-success {
+    height: 35px;
+    width: 97px;
+    /* margin-left: 897px;
+    margin-top: 7px; */
+}
+.heading {
+    background-color: #9be1a0;
+    height: 48px;
+    border-radius: 4px;
+    margin-top: 49px;
+    text-align: center;
+    font-size: 20px;
+    padding-top: 7px;
+    width: 81%;
+    margin-left: 100px;
+}
+mat-icon.mat-icon.notranslate.check-icon.material-icons.mat-icon-no-color {
+    color: #27b327;
+}
+mat-icon.mat-icon.notranslate.cross-icon.material-icons.mat-icon-no-color {
+    color: red;
+}
+mat-icon.mat-icon.notranslate.circle-icon.material-icons.mat-icon-no-color {
+    color: gray;
+}

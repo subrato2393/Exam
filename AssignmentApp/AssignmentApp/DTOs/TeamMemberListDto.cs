@@ -2,7 +2,7 @@
 {
     public class TeamMemberListDto
     {
-        public int TeamId { get; set; }
+        public int TeamDetailsId { get; set; }
         public string? TeamName { get; set; }
         public string? TeamDescription { get; set; }
         public string? Name { get; set; }
@@ -11,3 +11,4 @@
         public int? GenderId { get; set; }
     }
 }
+ 

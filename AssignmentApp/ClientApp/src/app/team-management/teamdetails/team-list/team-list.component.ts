@@ -18,7 +18,12 @@ export class TeamListComponent implements OnInit {
   getAllTeamList(){
     this.teamDetailsService.getAll().subscribe((res)=>{
       this.teamDetailsList =res;
+      console.log(this.teamDetailsList);
     }
     )
+  }
+
+  deleteItem(team:any){
+    console.log(team)
   }
 }
