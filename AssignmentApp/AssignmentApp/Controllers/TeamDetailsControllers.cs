@@ -2,7 +2,6 @@
 using AssignmentApp.Domain;
 using AssignmentApp.DTOs;
 using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AssignmentApp.Controllers
@@ -24,14 +23,14 @@ namespace AssignmentApp.Controllers
         public async Task<ActionResult> Post(TeamDetailsDto teamDto)
         {
 
-           var team = teamDto.TeamMemberDtos.Select(x => new TeamDetail
+            var team = teamDto.Member.Select(x => new TeamDetail
             {
-                 ContactNo = x.ContactNo,
-                 DateOfBirth = x.DateOfBirth,
-                 GenderId =x.GenderId,
-                 Name =x.Name,
-                 TeamDescription = teamDto.TeamDescription,
-                 TeamName = teamDto.TeamName
+                ContactNo = x.ContactNo,
+                DateOfBirth = x.DateOfBirth,
+                GenderId = x.GenderId,
+                Name = x.Name,
+                TeamDescription = teamDto.TeamDescription,
+                TeamName = teamDto.TeamName
             });
 
             _context.AddRange(team);

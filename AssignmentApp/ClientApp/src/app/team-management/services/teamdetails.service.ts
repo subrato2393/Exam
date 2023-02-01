@@ -13,7 +13,7 @@ export class TeamDetailsService {
   }
 
   submit(model:any){
-   return this.http.post("https://localhost:7024/api/Products/save-product",model)
+   return this.http.post("https://localhost:7172/api/TeamDetailsControllers/save-Team",model)
   }
  
   update(model:any){

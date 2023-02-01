@@ -1,6 +1,49 @@
-<p>new-team details!</p>
-<p>new-team details!</p>
-<p>new-team details!</p>
-<p>new-team details!</p>
-<p>new-team details!</p>
-<p>new-team details!</p>
+<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+    <div class="card">
+      <div class="body">
+        <form class="m-4" [formGroup]="TeamForm" (ngSubmit)="onSubmit()">
+            <div class="form-group col-md-6">
+                <label for="teamName">Team Name</label>
+                <input id="teamName" class="form-control"  placeholder="Enter Team Name" type="text" formControlName="teamName">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="teamDescription">Team Description </label>
+                <textarea id="teamDescription" class="form-control"  placeholder="Enter Team Description" type="text" formControlName="teamDescription"></textarea>
+            </div>
+
+        <div><h3 style="color:rgb(83, 209, 93)">Team Member</h3></div>
+        <div formArrayName="member">
+         
+            <div *ngFor="let unit of teamDetails.controls; let i = index" formGroupName="{{i}}" class="margin-top">
+            
+            <table>
+                <tbody>
+                    <td>
+                        <input class="form-control"  placeholder="Enter Name" id="name" type="text" formControlName="name">
+                    </td>
+                    <td>
+                        <input class="form-control" placeholder="Enter Date"  id="dateOfBirth" type="date" formControlName="dateOfBirth">
+                    </td>
+                    <td>
+                        <input class="form-control" placeholder="Contact No" id="contactNo" type="text" formControlName="contactNo">
+                    </td>
+                    <td>
+                        <input class="form-control" placeholder="Gender" id="genderId" type="text" formControlName="genderId">
+                    </td>
+                </tbody>
+            </table>
+           </div>           
+        </div>
+          <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+              <button class="btn btn-success mt-2" [disabled]="!TeamForm.valid " mat-raised-button>Save</button>
+            </div>
+          </div>
+        </form>
+
+        <div class="col-md-12">
+            <button class="btn btn-primary" (click)="addNewMember()">Add New Member</button>
+        </div>           
+      </div>
+    </div>
+  </div>

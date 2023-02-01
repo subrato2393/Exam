@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {NewTeamDetailsComponent} from './teamdetails/new-teamdetails/new-teamdetails.component'
 import {TeamListComponent} from './teamdetails/team-list/team-list.component'
+
 const routes: Routes = [
   { 
     path:  '',
