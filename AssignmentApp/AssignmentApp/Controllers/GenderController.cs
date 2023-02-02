@@ -25,7 +25,7 @@ namespace AssignmentApp.Controllers
         {
             var gender = _mapper.Map<Gender>(genderDto);
 
-           _context.Gender.Add(gender);
+        //   _context.Gender.Add(gender);
            _context.SaveChanges();
 
            return Ok();
@@ -35,9 +35,9 @@ namespace AssignmentApp.Controllers
         [Route("getall-gender")]
         public async Task<ActionResult> Get()
         {
-            var genders = _context.Gender.ToList();
-            var genderDto = _mapper.Map<List<GenderDto>>(genders);
-            return Ok(genderDto);
+            //var genders = _context.Gender.ToList();
+            //var genderDto = _mapper.Map<List<GenderDto>>(genders);
+            return Ok();
         }
     }
 }

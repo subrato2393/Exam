@@ -8,6 +8,8 @@
         public string? Name { get; set; }
         public DateTime? DateOfBirth { get; set; }
         public string? ContactNo { get; set; }
+        public int? ApprovedByDirector { get; set; }
+        public int? AprovedByManager { get; set; }
         public int? GenderId { get; set; }
     }
 }

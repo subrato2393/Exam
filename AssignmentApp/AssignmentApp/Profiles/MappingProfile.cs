@@ -10,7 +10,9 @@ namespace AssignmentApp.Profiles
         {
             CreateMap<GenderDto, Gender>().ReverseMap();
 
-            CreateMap<TeamDetail, TeamMemberListDto>().ReverseMap();
+          CreateMap<TeamDetailsDto, TeamDetail>().ReverseMap();
+            CreateMap<TeamMemberListDto, TeamDetail>().ReverseMap();
+            //    .ForMember(x=>x.Member,Member);
         }
     }
 }

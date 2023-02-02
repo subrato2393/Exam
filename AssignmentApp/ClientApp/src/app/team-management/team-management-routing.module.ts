@@ -14,7 +14,7 @@ const routes: Routes = [
     component: NewTeamDetailsComponent 
   },
   { 
-    path: 'update-teamdetails:/teamDetailsId', 
+    path: 'update-teamdetails/:teamDetailsId', 
     component: NewTeamDetailsComponent 
   },
   { 

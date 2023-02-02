@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
- 
-namespace AssignmentApp.Domain
+
+namespace AssignmentApp.Models
 {
-    public  class Gender
+    public partial class Gender
     {
         public Gender()
         {

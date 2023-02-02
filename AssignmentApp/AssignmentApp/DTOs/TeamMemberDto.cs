@@ -9,6 +9,7 @@ namespace AssignmentApp.DTOs
         public DateTime DateOfBirth { get; set; }
         public string? ContactNo { get; set; }
         public int? GenderId { get; set; }
+        public int? TeamDetailsId { get; set; }
     }
 }
  

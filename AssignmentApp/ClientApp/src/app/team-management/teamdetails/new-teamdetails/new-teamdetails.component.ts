@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators,FormArray } from '@angular/forms';
 import { TeamDetailsService } from '../../services/teamdetails.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-teamdetails',
@@ -11,9 +12,26 @@ export class NewTeamDetailsComponent implements OnInit {
 
   TeamForm!: FormGroup;
 
-  constructor(private fb: FormBuilder,private teamDetailsService: TeamDetailsService) { }
+  constructor(private fb: FormBuilder,private teamDetailsService: TeamDetailsService,private router: Router,  private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('teamDetailsId'); 
+    if(id){
+      this.teamDetailsService.find(+id).subscribe(
+        res => {
+          this.TeamForm.patchValue({     
+             teamDetailsId:res.teamDetailsId,      
+             teamName:res.teamName, 
+             teamDescription: res.teamDescription
+          });     
+        console.log("res");
+      console.log(res)
+        }
+      );
+    }
+    console.log("yyyyyyy");
+    console.log(id);
+
     this.intitializeForm();
   }
 
@@ -22,6 +40,8 @@ export class NewTeamDetailsComponent implements OnInit {
       teamId: [0],
       teamName:[''],
       teamDescription:[''],
+      approvedByDirector:[0],
+      aprovedByManager:[0],
       member:  this.fb.array([
         this.createMemberForm()
       ]), 

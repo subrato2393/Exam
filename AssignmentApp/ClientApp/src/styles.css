@@ -62,3 +62,6 @@ mat-icon.mat-icon.notranslate.cross-icon.material-icons.mat-icon-no-color {
 mat-icon.mat-icon.notranslate.circle-icon.material-icons.mat-icon-no-color {
     color: gray;
 }
+button.display-approved {
+    border: none;
+}

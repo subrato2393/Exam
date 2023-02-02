@@ -9,9 +9,15 @@ export class TeamDetailsService {
   constructor(private http:HttpClient) { }
 
   find(id:any){
-    return this.http.get<any>("https://localhost:7024/api/Products/getbyid?id="+id+"");
+    return this.http.get<any>("https://localhost:7172/api/TeamDetailsControllers/getteam-details/"+id+"");
   }
-
+ // return this.http.put(this.baseUrl + '/course-duration/update-courseDuration/'+id, model);
+  updateApprovedByDirector(id:any,statusValue:any){
+    return this.http.put("https://localhost:7172/api/TeamDetailsControllers/update-teamstatusby-director/"+id,statusValue);
+  }
+  updateApprovedByManager(id:any,statusValue:any){
+    return this.http.put("https://localhost:7172/api/TeamDetailsControllers/update-teamstatusby-manager/"+id,statusValue);
+  }
   submit(model:any){
    return this.http.post("https://localhost:7172/api/TeamDetailsControllers/save-Team",model)
   }

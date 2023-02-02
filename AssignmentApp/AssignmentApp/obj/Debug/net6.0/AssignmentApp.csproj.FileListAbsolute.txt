@@ -1,3 +1,4 @@
+C:\Users\subrato\Desktop\Exam\AssignmentApp\AssignmentApp\bin\Debug\net6.0\AssignmentApp.pdb
 C:\Users\subrato\Desktop\Exam\AssignmentApp\AssignmentApp\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\subrato\Desktop\Exam\AssignmentApp\AssignmentApp\bin\Debug\net6.0\appsettings.json
 C:\Users\subrato\Desktop\Exam\AssignmentApp\AssignmentApp\bin\Debug\net6.0\AssignmentApp.exe
@@ -5,7 +6,8 @@ C:\Users\subrato\Desktop\Exam\AssignmentApp\AssignmentApp\bin\Debug\net6.0\Assig
 C:\Users\subrato\Desktop\Exam\AssignmentApp\AssignmentApp\bin\Debug\net6.0\AssignmentApp.runtimeconfig.json
 C:\Users\subrato\Desktop\Exam\AssignmentApp\AssignmentApp\bin\Debug\net6.0\AssignmentApp.dll
 C:\Users\subrato\Desktop\Exam\AssignmentApp\AssignmentApp\bin\Debug\net6.0\ref\AssignmentApp.dll
-C:\Users\subrato\Desktop\Exam\AssignmentApp\AssignmentApp\bin\Debug\net6.0\AssignmentApp.pdb
+C:\Users\subrato\Desktop\Exam\AssignmentApp\AssignmentApp\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\subrato\Desktop\Exam\AssignmentApp\AssignmentApp\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\subrato\Desktop\Exam\AssignmentApp\AssignmentApp\bin\Debug\net6.0\Humanizer.dll
 C:\Users\subrato\Desktop\Exam\AssignmentApp\AssignmentApp\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
 C:\Users\subrato\Desktop\Exam\AssignmentApp\AssignmentApp\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
@@ -58,5 +60,3 @@ C:\Users\subrato\Desktop\Exam\AssignmentApp\AssignmentApp\obj\Debug\net6.0\Assig
 C:\Users\subrato\Desktop\Exam\AssignmentApp\AssignmentApp\obj\Debug\net6.0\ref\AssignmentApp.dll
 C:\Users\subrato\Desktop\Exam\AssignmentApp\AssignmentApp\obj\Debug\net6.0\AssignmentApp.pdb
 C:\Users\subrato\Desktop\Exam\AssignmentApp\AssignmentApp\obj\Debug\net6.0\AssignmentApp.genruntimeconfig.cache
-C:\Users\subrato\Desktop\Exam\AssignmentApp\AssignmentApp\bin\Debug\net6.0\AutoMapper.dll
-C:\Users\subrato\Desktop\Exam\AssignmentApp\AssignmentApp\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

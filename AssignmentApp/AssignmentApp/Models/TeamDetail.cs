@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AssignmentApp.Domain
+namespace AssignmentApp.Models
 {
-    public class TeamDetail
+    public partial class TeamDetail
     {
         public TeamDetail()
         {
@@ -13,8 +13,8 @@ namespace AssignmentApp.Domain
         public int TeamDetailsId { get; set; }
         public string? TeamName { get; set; }
         public string? TeamDescription { get; set; }
-        public int? ApprovedByDirector { get; set; }
-        public int? AprovedByManager { get; set; }
+
+
         public virtual ICollection<Member> Members { get; set; }
     }
 }
