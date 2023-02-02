@@ -18,7 +18,7 @@
         <mat-icon *ngIf="team.aprovedByManager == 2" class="cross-icon">highlight_off</mat-icon>
         <mat-icon *ngIf="team.aprovedByManager == 0" class="circle-icon">lens</mat-icon> -->
 
-        <button mat-icon-button class="display-approved" (click)="onCheckClickManager(team.teamDetailsId,team.aprovedByManager)"   *ngIf="team.aprovedByManager == 1" ><mat-icon class="check-icon">check_circle_outline</mat-icon></button>
+        <button mat-icon-button class="display-approved"  (click)="onCheckClickManager(team.teamDetailsId,team.aprovedByManager)"   *ngIf="team.aprovedByManager == 1" ><mat-icon class="check-icon">check_circle_outline</mat-icon></button>
         <button mat-icon-button class="display-approved"  (click)="onCrossClickManager(team.teamDetailsId,team.aprovedByManager)"  *ngIf="team.aprovedByManager == 2"><mat-icon class="cross-icon">highlight_off</mat-icon></button>
         <button mat-icon-button  class="display-approved" (click)="onCircleClickManager(team.teamDetailsId,team.aprovedByManager)"  *ngIf="team.aprovedByManager == 0"><mat-icon class="circle-icon">lens</mat-icon></button>
       </td>

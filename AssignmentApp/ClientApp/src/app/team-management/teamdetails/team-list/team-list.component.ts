@@ -23,44 +23,35 @@ export class TeamListComponent implements OnInit {
     )
   }
   onCheckClickManager(id:any,value:any){
-
-    if(confirm("Are you sure to delete ")) {
-      this.teamDetailsService.updateApprovedByManager(id,value).subscribe((res)=>{
-        // this.teamDetailsList =res;
-        // console.log(this.teamDetailsList);
+      this.teamDetailsService.updateApprovedByManager(id,value).subscribe((res)=>
+      {
+        this.getAllTeamList();
       })
-      console.log("Implement delete functionality here");
-    }
-  
+      console.log("Implement delete functionality here"); 
   }
   onCrossClickManager(id:any,value:any){
     this.teamDetailsService.updateApprovedByManager(id,value).subscribe((res)=>{
-      // this.teamDetailsList =res;
-      // console.log(this.teamDetailsList);
+      this.getAllTeamList();
     })
   }
   onCircleClickManager(id:any,value:any){
     this.teamDetailsService.updateApprovedByManager(id,value).subscribe((res)=>{
-      // this.teamDetailsList =res;
-      // console.log(this.teamDetailsList);
+      this.getAllTeamList();
     })
   }
   onCheckClickDirector(id:any,value:any){
     this.teamDetailsService.updateApprovedByDirector(id,value).subscribe((res)=>{
-      // this.teamDetailsList =res;
-      // console.log(this.teamDetailsList);
+      this.getAllTeamList();
     })
   }
   onCrossClickDirector(id:any,value:any){
     this.teamDetailsService.updateApprovedByDirector(id,value).subscribe((res)=>{
-      // this.teamDetailsList =res;
-      // console.log(this.teamDetailsList);
+      this.getAllTeamList();
     })
   }
   onCircleClickDirector(id:any,value:any){
     this.teamDetailsService.updateApprovedByDirector(id,value).subscribe((res)=>{
-      // this.teamDetailsList =res;
-      // console.log(this.teamDetailsList);
+      this.getAllTeamList();
     })
   }
   
