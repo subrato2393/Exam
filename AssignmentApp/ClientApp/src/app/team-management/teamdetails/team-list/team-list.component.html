@@ -1,8 +1,12 @@
 <div class="container">
 
- <div class="heading">
-     Team Status
-     <button class="btn btn-success">New Task</button>
+ <div class="row heading">
+     <div class="col-md-10">
+       <span class="teamstatus-heading">Team Status</span>
+     </div>
+     <div class="col-md-2">
+      <button routerLink="/new-teamdetails" class="btn btn-success">New Task</button>
+     </div>
  </div>
   <table class="team">
     <tr>
@@ -12,7 +16,7 @@
       <th></th>
     </tr>
     <tr *ngFor="let team of this.teamDetailsList">
-      <td>{{team.teamName}}</td>
+      <td class="team-name">{{team.teamName}}</td>
       <td class="approved-manager">
 
         <button mat-icon-button matTooltip="Approved" matTooltipPosition="below"  class="display-approved"  (click)="onCheckClickManager(team.teamDetailsId,team.aprovedByManager)"   *ngIf="team.aprovedByManager == 1" >

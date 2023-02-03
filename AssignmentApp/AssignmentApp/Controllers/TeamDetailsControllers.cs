@@ -123,5 +123,24 @@ namespace AssignmentApp.Controllers
 
             return Ok(teamDetailsDto);
         }
+
+        [HttpDelete]
+        [Route("delete-teamdetails/{id}")]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var teamDetails = _context.TeamDetails.Find(id);
+
+            //delete member 
+             var member = _context.Members.Where(x=>x.TeamDetailsId == teamDetails.TeamDetailsId).ToList();
+            _context.Members.RemoveRange(member);
+            _context.SaveChanges();
+
+
+            //delete team details
+            _context.TeamDetails.Remove(teamDetails);
+            _context.SaveChanges();
+
+            return NoContent();
+        }
     }
 }

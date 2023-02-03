@@ -49,9 +49,11 @@ button.delete-btn {
     margin-top: 49px;
     text-align: center;
     font-size: 20px;
-    padding-top: 7px;
     width: 81%;
-    margin-left: 100px;
+    margin-left: 110px;
+}
+.row.heading {
+    padding-top: 11px;
 }
 mat-icon.mat-icon.notranslate.check-icon.material-icons.mat-icon-no-color {
     color: #27b327;
@@ -64,4 +66,22 @@ mat-icon.mat-icon.notranslate.circle-icon.material-icons.mat-icon-no-color {
 }
 button.display-approved {
     border: none;
+}
+.snackbar-show {
+    background: #1d9931;
+  }
+  .snackbar-danger {
+    background: #e60b0b;
+  }
+  .row.heading {
+    margin-left: 100px;
+}
+td.team-name {
+    width: 440px;
+}
+button.btn.btn-success.mt-2.exit {
+    margin-left: 12px;
+}
+span.namefieldvalidation {
+    color: red;
 }

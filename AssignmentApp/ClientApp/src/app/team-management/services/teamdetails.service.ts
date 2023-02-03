@@ -8,6 +8,13 @@ import {HttpClient} from '@angular/common/http'
 export class TeamDetailsService {
   constructor(private http:HttpClient) { }
 
+
+  //https://localhost:7172/api/Gender/getall-gender
+
+  getAllGender(){
+    return this.http.get<any>("https://localhost:7172/api/Gender/getall-gender");
+  }
+
   find(id:any){
     return this.http.get<any>("https://localhost:7172/api/TeamDetailsControllers/getteam-details/"+id+"");
   }
@@ -27,7 +34,7 @@ export class TeamDetailsService {
   }
 
   delete(id:any){
-    return this.http.delete("https://localhost:7024/api/Products/delete-product?id="+id);
+    return this.http.delete("https://localhost:7172/api/TeamDetailsControllers/delete-teamdetails/"+id);
   }
 
   getAll(){
