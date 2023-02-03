@@ -1,4 +1,5 @@
-﻿using AssignmentApp.DatabaseContext;
+﻿using AssignmentApp.Constant;
+using AssignmentApp.DatabaseContext;
 using AssignmentApp.Domain;
 using AssignmentApp.DTOs;
 using AutoMapper;
@@ -48,19 +49,19 @@ namespace AssignmentApp.Controllers
         public async Task<ActionResult> UpdateStatusManager([FromBody] int statusValue, int id)
         {
             var teamDetails = _context.TeamDetails.Find(id);
-            if (statusValue == 0) 
+            if (statusValue == TeamConstant.PendingStatusValueManager) 
             {
-                teamDetails.AprovedByManager = 1;
+                teamDetails.AprovedByManager = TeamConstant.ApprovedStatusValueManager;
             }
 
-            else if (statusValue == 1)
+            else if (statusValue == TeamConstant.ApprovedStatusValueManager)
             {
-                teamDetails.AprovedByManager = 2;
+                teamDetails.AprovedByManager = TeamConstant.UapprovedStatusValueManager;
             }
 
-            else if (statusValue == 2)
+            else if (statusValue == TeamConstant.UapprovedStatusValueManager)
             {
-                teamDetails.AprovedByManager = 0;
+                teamDetails.AprovedByManager = TeamConstant.PendingStatusValueManager;
             }
 
             _context.TeamDetails.Update(teamDetails);
@@ -74,19 +75,19 @@ namespace AssignmentApp.Controllers
         public async Task<ActionResult> Put([FromBody] int statusValue,int id)
         {
             var teamDetails =_context.TeamDetails.Find(id);
-            if(statusValue == 0)
+            if(statusValue == TeamConstant.PendingStatusValueDirector)
             {
-                teamDetails.ApprovedByDirector = 1;
+                teamDetails.ApprovedByDirector = TeamConstant.ApprovedStatusValueDirector;
             }
 
-            else if (statusValue == 1)
+            else if (statusValue == TeamConstant.ApprovedStatusValueDirector)
             {
-                teamDetails.ApprovedByDirector = 2;
+                teamDetails.ApprovedByDirector = TeamConstant.UapprovedStatusValueDirector;
             }
 
-            else if (statusValue == 2)
+            else if (statusValue == TeamConstant.UapprovedStatusValueDirector)
             {
-                teamDetails.ApprovedByDirector = 0;
+                teamDetails.ApprovedByDirector = TeamConstant.PendingStatusValueDirector;
             }
 
             _context.TeamDetails.Update(teamDetails);

@@ -24,8 +24,6 @@ namespace AssignmentApp.Controllers
         public async Task<ActionResult> Post(GenderDto genderDto)
         {
             var gender = _mapper.Map<Gender>(genderDto);
-
-        //   _context.Gender.Add(gender);
            _context.SaveChanges();
 
            return Ok();

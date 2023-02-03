@@ -14,22 +14,33 @@
     <tr *ngFor="let team of this.teamDetailsList">
       <td>{{team.teamName}}</td>
       <td class="approved-manager">
-        <!-- <mat-icon (click)="onClick(1)" *ngIf="team.aprovedByManager == 1" class="check-icon">check_circle_outline</mat-icon>
-        <mat-icon *ngIf="team.aprovedByManager == 2" class="cross-icon">highlight_off</mat-icon>
-        <mat-icon *ngIf="team.aprovedByManager == 0" class="circle-icon">lens</mat-icon> -->
 
-        <button mat-icon-button class="display-approved"  (click)="onCheckClickManager(team.teamDetailsId,team.aprovedByManager)"   *ngIf="team.aprovedByManager == 1" ><mat-icon class="check-icon">check_circle_outline</mat-icon></button>
-        <button mat-icon-button class="display-approved"  (click)="onCrossClickManager(team.teamDetailsId,team.aprovedByManager)"  *ngIf="team.aprovedByManager == 2"><mat-icon class="cross-icon">highlight_off</mat-icon></button>
-        <button mat-icon-button  class="display-approved" (click)="onCircleClickManager(team.teamDetailsId,team.aprovedByManager)"  *ngIf="team.aprovedByManager == 0"><mat-icon class="circle-icon">lens</mat-icon></button>
+        <button mat-icon-button matTooltip="Approved" matTooltipPosition="below"  class="display-approved"  (click)="onCheckClickManager(team.teamDetailsId,team.aprovedByManager)"   *ngIf="team.aprovedByManager == 1" >
+            <mat-icon class="check-icon">check_circle_outline</mat-icon>
+        </button>
+        
+        <button mat-icon-button matTooltip="Not Approved" matTooltipPosition="below" class="display-approved"  (click)="onCrossClickManager(team.teamDetailsId,team.aprovedByManager)"  *ngIf="team.aprovedByManager == 2">
+          <mat-icon class="cross-icon">highlight_off</mat-icon>
+        </button>
+
+        <button mat-icon-button matTooltip="Pending" matTooltipPosition="below"  class="display-approved" (click)="onCircleClickManager(team.teamDetailsId,team.aprovedByManager)"  *ngIf="team.aprovedByManager == 0">
+          <mat-icon class="circle-icon">lens</mat-icon>
+        </button>
+
       </td>
       <td class="approved-director">
-        <button mat-icon-button class="display-approved" (click)="onCheckClickDirector(team.teamDetailsId,team.approvedByDirector)"   *ngIf="team.approvedByDirector == 1" ><mat-icon class="check-icon">check_circle_outline</mat-icon></button>
-        <button mat-icon-button class="display-approved" (click)="onCrossClickDirector(team.teamDetailsId,team.approvedByDirector)"  *ngIf="team.approvedByDirector == 2"><mat-icon class="cross-icon">highlight_off</mat-icon></button>
-        <button mat-icon-button class="display-approved" (click)="onCircleClickDirector(team.teamDetailsId,team.approvedByDirector)"  *ngIf="team.approvedByDirector == 0"><mat-icon class="circle-icon">lens</mat-icon></button>
-        
-        <!-- <mat-icon *ngIf="team.approvedByDirector == 1" class="check-icon">check_circle_outline</mat-icon>
-        <mat-icon *ngIf="team.approvedByDirector == 2"  class="cross-icon">highlight_off</mat-icon>
-        <mat-icon *ngIf="team.approvedByDirector == 0" class="circle-icon">lens</mat-icon> -->
+        <button mat-icon-button matTooltip="Approved" matTooltipPosition="below" class="display-approved" (click)="onCheckClickDirector(team.teamDetailsId,team.approvedByDirector)"   *ngIf="team.approvedByDirector == 1" >
+          <mat-icon class="check-icon">check_circle_outline</mat-icon>
+        </button>
+
+        <button mat-icon-button matTooltip="Not Approved" matTooltipPosition="below" class="display-approved" (click)="onCrossClickDirector(team.teamDetailsId,team.approvedByDirector)"  *ngIf="team.approvedByDirector == 2">
+          <mat-icon class="cross-icon">highlight_off</mat-icon>
+        </button>
+
+        <button mat-icon-button matTooltip="Pending" matTooltipPosition="below" class="display-approved" (click)="onCircleClickDirector(team.teamDetailsId,team.approvedByDirector)"  *ngIf="team.approvedByDirector == 0">
+          <mat-icon class="circle-icon">lens</mat-icon>
+        </button>
+
       </td>
       <td>
        <button class="edit-btn" [routerLink]="['/update-teamdetails', team.teamDetailsId]">Edit</button>
