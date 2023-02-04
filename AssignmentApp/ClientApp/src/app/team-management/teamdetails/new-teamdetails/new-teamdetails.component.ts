@@ -14,6 +14,7 @@ export class NewTeamDetailsComponent implements OnInit {
   TeamForm!: FormGroup;
   genderList:any;
   buttonText !:string;
+  memberList !:any[];
 
   constructor(private fb: FormBuilder,private snackBar: MatSnackBar,private teamDetailsService: TeamDetailsService,private router: Router,  private route: ActivatedRoute) { }
 
@@ -21,15 +22,33 @@ export class NewTeamDetailsComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('teamDetailsId'); 
     if(id){
       this.buttonText="Update"
+      console.log("ddd");
+
+      //this.TeamForm.get("member").patchValue("address")
       this.teamDetailsService.find(+id).subscribe(
+        
         res => {
           this.TeamForm.patchValue({     
-             teamDetailsId:res.teamDetailsId,      
-             teamName:res.teamName, 
-             teamDescription: res.teamDescription
+             teamDetailsId:res.teamDetails.teamDetailsId,      
+             teamName:res.teamDetails.teamName, 
+             teamDescription: res.teamDetails.teamDescription,
+
+            
+            // this.getAll();
+          //   member:4
+             //this.reactiveForm.get("address").patchValue(address);
+         // this.TeamForm.get("member").patchValue(memberDetails);
+          //  member:{
+            //   name:3,
+            //   dateOfBirth:4,
+            //   contactNo:7,
+            //   genderId:9
+            //  }
           });     
+          this.memberList =res.memberDetails
+          this.getAll();
         console.log("res");
-      console.log(res)
+      console.log(this.memberList)
         }
       );
     }
@@ -65,6 +84,22 @@ export class NewTeamDetailsComponent implements OnInit {
       genderId:['',Validators.required],
     });
   }
+getAll(){
+  (this.TeamForm.controls.member as FormArray).reset(); //reset the FormArray
+
+  this.memberList.forEach(x => {
+      (this.TeamForm.controls.member as FormArray)
+      .push(this.fb.group({
+        name: [x.name, Validators.required],
+        dateOfBirth: [x.dateOfBirth, Validators.required],
+        contactNo: [x.contactNo, Validators.required],
+        genderId: [x.genderId, Validators.required]
+      })
+      )
+  });
+}
+  
+
 
  get teamName(){
    return this.TeamForm.get('teamName')
