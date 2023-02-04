@@ -111,7 +111,9 @@ namespace AssignmentApp.Controllers
                              td.TeamDetailsId,
                              td.TeamName,
                              td.TeamDescription,
-                           //  DeletedOrderItemIDs = ""
+                             td.AprovedByManager,
+                             td.ApprovedByDirector
+
                          }).FirstOrDefault();
               
             var memberDetails = (from m in _context.Members
@@ -155,6 +157,34 @@ namespace AssignmentApp.Controllers
             //delete team details
             _context.TeamDetails.Remove(teamDetails);
             _context.SaveChanges();
+
+            return NoContent();
+        }
+
+        [HttpPut]
+        [Route("update-team-and-memberdetails/{id}")] 
+        public async Task<ActionResult> UpdateTeamANdMemberDetails([FromBody] TeamDetailsDto teamDto,int id)
+        {
+            var team = _mapper.Map<TeamDetail>(teamDto);
+
+            team.TeamDetailsId = id;
+
+            _context.TeamDetails.Update(team);
+            _context.SaveChanges();
+
+            var member = teamDto.Member.Select(x => new Member
+            {
+                MemberId =x.MemberId.Value,
+                Name = x.Name,
+                ContactNo = x.ContactNo,
+                DateOfBirth = x.DateOfBirth,
+                GenderId = x.GenderId,
+                TeamDetailsId = team.TeamDetailsId
+            });
+
+            _context.UpdateRange(member);
+            _context.SaveChanges();
+
 
             return NoContent();
         }

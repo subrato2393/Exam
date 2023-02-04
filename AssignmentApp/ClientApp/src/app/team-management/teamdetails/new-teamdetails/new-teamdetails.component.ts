@@ -24,7 +24,6 @@ export class NewTeamDetailsComponent implements OnInit {
       this.buttonText="Update"
       console.log("ddd");
 
-      //this.TeamForm.get("member").patchValue("address")
       this.teamDetailsService.find(+id).subscribe(
         
         res => {
@@ -32,23 +31,13 @@ export class NewTeamDetailsComponent implements OnInit {
              teamDetailsId:res.teamDetails.teamDetailsId,      
              teamName:res.teamDetails.teamName, 
              teamDescription: res.teamDetails.teamDescription,
-
-            
-            // this.getAll();
-          //   member:4
-             //this.reactiveForm.get("address").patchValue(address);
-         // this.TeamForm.get("member").patchValue(memberDetails);
-          //  member:{
-            //   name:3,
-            //   dateOfBirth:4,
-            //   contactNo:7,
-            //   genderId:9
-            //  }
+             aprovedByManager: res.teamDetails.aprovedByManager,
+             approvedByDirector: res.teamDetails.approvedByDirector,
           });     
           this.memberList =res.memberDetails
-          this.getAll();
-        console.log("res");
-      console.log(this.memberList)
+          console.log("member list");
+          console.log(res);
+          this.getMemberDetails();
         }
       );
     }
@@ -78,27 +67,43 @@ export class NewTeamDetailsComponent implements OnInit {
 
   private createMemberForm() {
     return this.fb.group({
+      memberId:[],
       name: ['',Validators.required],
       dateOfBirth:['',Validators.required],
       contactNo:['',Validators.required],
       genderId:['',Validators.required],
     });
   }
-getAll(){
+
+
+getMemberDetails(){
   (this.TeamForm.controls.member as FormArray).reset(); //reset the FormArray
+
+   //reset the FormArray this.formatDate(new Date())
 
   this.memberList.forEach(x => {
       (this.TeamForm.controls.member as FormArray)
       .push(this.fb.group({
+        memberId: [x.memberId],
         name: [x.name, Validators.required],
-        dateOfBirth: [x.dateOfBirth, Validators.required],
+        dateOfBirth: [this.formatDate(x.dateOfBirth), Validators.required],
         contactNo: [x.contactNo, Validators.required],
         genderId: [x.genderId, Validators.required]
       })
       )
   });
+  (this.TeamForm.controls.member as FormArray).removeAt(0);
 }
-  
+
+private formatDate(date:any) {
+  const d = new Date(date);
+  let month = '' + (d.getMonth() + 1);
+  let day = '' + d.getDate();
+  const year = d.getFullYear();
+  if (month.length < 2) month = '0' + month;
+  if (day.length < 2) day = '0' + day;
+  return [year, month, day].join('-');
+}
 
 
  get teamName(){
@@ -121,6 +126,7 @@ get name(){
       }
       )
   }
+
   get teamDetails() {
     return this.TeamForm.get('member') as FormArray
   }
@@ -129,6 +135,7 @@ get name(){
     const control=<FormArray>this.TeamForm.controls['member'];
     control.push(this.createMemberForm()); 
   }
+
   reloadCurrentRoute() {
     let currentUrl = this.router.url;
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
@@ -137,6 +144,25 @@ get name(){
   }
 
   onSubmit() {
+    const id = this.route.snapshot.paramMap.get('teamDetailsId'); 
+
+    if(id){
+      console.log(this.TeamForm.value);
+
+      //this.TeamForm.get('teamDetailsId').setValue(id);
+
+       this.teamDetailsService.update(+id,this.TeamForm.value).subscribe(response => {
+        this.router.navigateByUrl('/team-list');
+        this.snackBar.open('Information Updated Successfully ', '', {
+              duration: 2000,
+              verticalPosition: 'bottom',
+              horizontalPosition: 'right',
+              panelClass: ['snackbar-show']
+            });
+          })
+        }
+    else
+    {
       this.teamDetailsService.submit(this.TeamForm.value).subscribe(response => {
         this.reloadCurrentRoute();
         this.snackBar.open('Information Inserted Successfully ', '', {
@@ -146,5 +172,6 @@ get name(){
           panelClass: ['snackbar-show']
         });
       })
+    }
     }
 }

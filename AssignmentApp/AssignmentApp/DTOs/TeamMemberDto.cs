@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace AssignmentApp.DTOs
-{  
-    public class TeamMemberDto
-    {
+﻿namespace AssignmentApp.DTOs
+{
+    public class TeamMemberDto 
+    { 
+        public int? MemberId { get; set; }
         public string? Name { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string? ContactNo { get; set; }

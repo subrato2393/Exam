@@ -25,9 +25,9 @@ export class TeamDetailsService {
   submit(model:any){
    return this.http.post("https://localhost:7172/api/TeamDetailsControllers/save-Team",model)
   }
- 
-  update(model:any){
-  return this.http.put("https://localhost:7024/api/Products/update-product",model);
+
+  update(id:any,model:any){
+  return this.http.put("https://localhost:7172/api/TeamDetailsControllers/update-team-and-memberdetails/"+id,model);
   }
 
   delete(id:any){
