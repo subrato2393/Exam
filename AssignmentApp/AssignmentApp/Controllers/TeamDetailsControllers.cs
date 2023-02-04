@@ -101,19 +101,35 @@ namespace AssignmentApp.Controllers
         [Route("getteam-details/{id}")]
         public async Task<ActionResult> Get(int id)
         {
+            TeamDetailsDto teamDetailsDto = new TeamDetailsDto();
+
             var teamDetails = (from td in _context.TeamDetails
-                              join me in _context.Members on td.TeamDetailsId equals me.TeamDetailsId
-                              select new
-                              {
-                                  TeamDetailsId = td.TeamDetailsId,
-                                  TeamName = td.TeamName,
-                                  TeamDescription = td.TeamDescription
+                         where td.TeamDetailsId == id
 
-                              }).ToList().Where(x=>x.TeamDetailsId == id).FirstOrDefault();
+                         select new
+                         {
+                             td.TeamDetailsId,
+                             td.TeamName,
+                             td.TeamDescription,
+                           //  DeletedOrderItemIDs = ""
+                         }).FirstOrDefault();
+              
+            var memberDetails = (from m in _context.Members
+                                where m.TeamDetailsId == id
 
-            return Ok(teamDetails);
+                                select new
+                                {
+                                    m.TeamDetailsId,
+                                    m.MemberId,
+                                    m.Name,
+                                    m.ContactNo,
+                                    m.DateOfBirth,
+                                    m.GenderId
+                                }).ToList();
+
+            return Ok(new { teamDetails, memberDetails });
         }
-
+          
         [HttpGet]
         [Route("getall-team-details")]
         public async Task<ActionResult> Get() 
